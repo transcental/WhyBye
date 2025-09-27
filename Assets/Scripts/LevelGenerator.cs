@@ -51,6 +51,29 @@ namespace DefaultNamespace
                 var rotation = Quaternion.Euler(0, -angle * Mathf.Rad2Deg + 90, 0);
                 var obj = Instantiate(currentLevel.levelPrefab, position, rotation);
                 _objectsInLevel.Add(obj);
+                var interactables = obj.GetComponentsInChildren<Interactables.Interfaces.IInteractable>();
+                var luckyDone = false;
+                var unluckyDone = false;
+                foreach (var interactable in interactables)
+                {
+                    if (!luckyDone)
+                    {
+                        interactable.Setup(true, false);
+                        luckyDone = true;
+                        Debug.Log("Setup lucky interactable");
+                    }
+                    else if (!unluckyDone)
+                    {
+                        interactable.Setup(false, true);
+                        unluckyDone = true;
+                        Debug.Log("Setup unlucky interactable");
+                    }
+                    else
+                    {
+                        interactable.Setup(false, false);
+                        Debug.Log("Setup normal interactable");
+                    }
+                }
             }
             
             Debug.Log($"Generated Level: {currentLevel.levelName} with Difficulty: {_currentDifficulty}");

@@ -12,14 +12,15 @@ namespace Interactables
         
         private bool _lucky;
         private bool _unlucky;
-        
-        private readonly string _audioFolder = "Audio/Sounders/";
-        
+
+        private readonly string _audioFolder = Application.dataPath + "Audio/Sounders/";
+
         private LevelGenerator _levelGenerator;
         
-        private void OnAwake()
+        private void Awake()
         {
             _levelGenerator = FindAnyObjectByType<LevelGenerator>();
+            Debug.Log(_levelGenerator);
         }
 
         public void Setup(bool lucky, bool unlucky)
@@ -30,12 +31,20 @@ namespace Interactables
                 _unlucky = unlucky;
                 if (lucky)
                 {
-                    _clip = Resources.Load<AudioClip>(_audioFolder + "lucky.wav");
+                    Debug.Log(Application.dataPath);
+                    var path = _audioFolder + "lucky.wav"; 
+                    _clip = Resources.Load<AudioClip>(path);
+                    Debug.Log(path);
+                    Debug.Log(_clip);
+                    var allFiles = Resources.LoadAll<AudioClip>(_audioFolder);
+                    
                     _levelGenerator.levelSetupData.Add(_clip.name);
                 }
                 else if (unlucky)
                 {
-                    _clip = Resources.Load<AudioClip>(_audioFolder + "unlucky.wav");
+                    var path = _audioFolder + "unlucky.wav"; 
+                    _clip = Resources.Load<AudioClip>(path);
+                    Debug.Log(path);
                     _levelGenerator.levelSetupData.Add(_clip.name);
                 }
                 else
