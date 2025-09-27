@@ -13,7 +13,7 @@ namespace Interactables
         private bool _lucky;
         private bool _unlucky;
 
-        private readonly string _audioFolder = Application.dataPath + "Audio/Sounders/";
+        private string _audioFolder;
 
         private LevelGenerator _levelGenerator;
         
@@ -21,6 +21,14 @@ namespace Interactables
         {
             _levelGenerator = FindAnyObjectByType<LevelGenerator>();
             Debug.Log(_levelGenerator);
+            if (Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.OSXPlayer)
+            {
+                _audioFolder = "Audio/Sounders/";
+            }
+            else
+            {
+                _audioFolder = Application.dataPath + "Audio/Sounders/";
+            }
         }
 
         public void Setup(bool lucky, bool unlucky)
@@ -31,18 +39,18 @@ namespace Interactables
                 _unlucky = unlucky;
                 if (lucky)
                 {
-                    Debug.Log(Application.dataPath);
-                    var path = _audioFolder + "lucky.wav"; 
+                    Debug.Log(_audioFolder);
+                    var path = _audioFolder + "lucky";
+                    
                     _clip = Resources.Load<AudioClip>(path);
                     Debug.Log(path);
                     Debug.Log(_clip);
-                    var allFiles = Resources.LoadAll<AudioClip>(_audioFolder);
                     
                     _levelGenerator.levelSetupData.Add(_clip.name);
                 }
                 else if (unlucky)
                 {
-                    var path = _audioFolder + "unlucky.wav"; 
+                    var path = _audioFolder + "unlucky"; 
                     _clip = Resources.Load<AudioClip>(path);
                     Debug.Log(path);
                     _levelGenerator.levelSetupData.Add(_clip.name);
