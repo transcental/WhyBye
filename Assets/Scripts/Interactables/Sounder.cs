@@ -30,11 +30,13 @@ namespace Interactables
                 _unlucky = unlucky;
                 if (lucky)
                 {
-                    _clip = Resources.Load<AudioClip>(_audioFolder + "lucky");
+                    _clip = Resources.Load<AudioClip>(_audioFolder + "lucky.wav");
+                    _levelGenerator.levelSetupData.Add(_clip.name);
                 }
                 else if (unlucky)
                 {
-                    _clip = Resources.Load<AudioClip>(_audioFolder + "unlucky");
+                    _clip = Resources.Load<AudioClip>(_audioFolder + "unlucky.wav");
+                    _levelGenerator.levelSetupData.Add(_clip.name);
                 }
                 else
                 {
@@ -47,7 +49,7 @@ namespace Interactables
 
                     var randomIndex = Random.Range(0, clipsInFolder.Length);
                     _clip = clipsInFolder[randomIndex];
-                    if (_clip && _levelGenerator.levelSetupData.All(s => s != _clip.name))
+                    if (_clip && _levelGenerator.levelSetupData.All(s => s != _clip.name) && _clip.name != "lucky" && _clip.name != "unlucky")
                     {
                         _levelGenerator.levelSetupData.Add(_clip.name);
                         Debug.Log($"Assigned clip: {_clip.name} to {transform.name}");
