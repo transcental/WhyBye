@@ -155,6 +155,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   speed: 10
   rotationSpeed: 40
+  interactionRadius: 2
+  player: {fileID: 148982936}
 --- !u!114 &148982938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,8 +670,9 @@ MonoBehaviour:
   - levelName: Testing
     baseDifficulty: 1
     levelPrefab: {fileID: 3670836665817415822, guid: 9d98e783208584158ac5efd45ef6e4c3, type: 3}
-    amount: 40
+    amount: 6
   player: {fileID: 148982936}
+  levelSetupData: []
 --- !u!1 &2118663232
 GameObject:
   m_ObjectHideFlags: 0

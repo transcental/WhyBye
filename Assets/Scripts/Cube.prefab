@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5018204590679917814}
   - component: {fileID: 3544926351834230681}
   - component: {fileID: 5779139472768077823}
+  - component: {fileID: 3468040822005997847}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -111,3 +112,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3468040822005997847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3670836665817415822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 343d49484c5b4df1a44906626d39bab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interactables.Sounder
