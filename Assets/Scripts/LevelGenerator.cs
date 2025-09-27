@@ -21,7 +21,7 @@ namespace DefaultNamespace
         private int _currentLevelIndex = 0;
         private int _currentDifficulty = 0;
         private List<GameObject> _objectsInLevel;
-        private int _radius = 10;
+        private int _radius = 6;
         
         private void Start()
         {
@@ -47,7 +47,8 @@ namespace DefaultNamespace
                 var angle = i * Mathf.PI * 2 / currentLevel.amount;
                 var position = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * _radius;
                 position += player.transform.position;
-                var obj = Instantiate(currentLevel.levelPrefab, position, Quaternion.identity);
+                var rotation = Quaternion.Euler(0, -angle * Mathf.Rad2Deg + 90, 0);
+                var obj = Instantiate(currentLevel.levelPrefab, position, rotation);
                 _objectsInLevel.Add(obj);
             }
             
