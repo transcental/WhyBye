@@ -627,6 +627,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1383791897}
+  - component: {fileID: 1383791898}
   m_Layer: 0
   m_Name: Scene Manager
   m_TagString: Untagged
@@ -649,6 +650,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1383791898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383791896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf23e2a814a54030a14525fb1c759e10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefaultNamespace.LevelGenerator
+  levels:
+  - levelName: Testing
+    baseDifficulty: 1
+    levelPrefab: {fileID: 271707295646456836, guid: ccaf9e9c04eaf4913b5225ac7cce5344, type: 3}
+    amount: 3
+  player: {fileID: 148982936}
 --- !u!1 &2118663232
 GameObject:
   m_ObjectHideFlags: 0
