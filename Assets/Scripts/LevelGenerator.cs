@@ -21,7 +21,8 @@ namespace DefaultNamespace
         private int _currentLevelIndex = 0;
         private int _currentDifficulty = 0;
         private List<GameObject> _objectsInLevel;
-        private int _radius = 6;
+        private int _radius = 60;
+        public List<string> levelSetupData;
         
         private void Start()
         {

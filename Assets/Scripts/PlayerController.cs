@@ -1,3 +1,4 @@
+using Interactables.Interfaces;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
     [SerializeField] private float rotationSpeed = 20f;
+    [SerializeField] private float interactionRadius = 2f;
+    [SerializeField] private GameObject player;
     
     private PlayerControls _controls;
     private Vector2 _move;
@@ -23,6 +26,8 @@ public class PlayerController : MonoBehaviour
             ctx.ReadValue<float>();
         _controls.Player.Look.canceled += ctx => _look = 0f;
         
+       
+        _controls.Player.Interact.performed += ctx =>  OnInteract();
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -34,6 +39,35 @@ public class PlayerController : MonoBehaviour
     private void OnDisable()
     {
         _controls.Player.Disable();
+    }
+
+    private void OnInteract()
+    {
+        RaycastHit hit;
+        var pos1 = player.transform.position + new Vector3(0, 0.5f, 0);
+        var pos2 = player.transform.position + new Vector3(0, -0.5f, 0);
+        const float radius = 0.5f;
+        float distanceToObstacle = 0;
+
+        GameObject obj = null;
+        if (Physics.CapsuleCast(pos1, pos2, radius, transform.forward, out hit, interactionRadius))
+        {
+            distanceToObstacle = hit.distance;
+            obj = hit.collider.gameObject;
+        }
+        
+        if (obj == null)
+            return;
+        if (distanceToObstacle > interactionRadius)
+            return;
+
+        MonoBehaviour[] allScripts = obj.GetComponents<MonoBehaviour>();
+        foreach (var t in allScripts)
+        {
+            if (t is not IInteractable interactable) continue;
+            interactable?.Interact(player);
+            continue;
+        }
     }
 
     private void SendMessage(Vector2 coordinates)

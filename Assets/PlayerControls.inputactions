@@ -7,7 +7,7 @@
             "id": "7dd31d15-ddf1-46d5-898e-a528ae511118",
             "actions": [
                 {
-                    "name": "Buttons",
+                    "name": "Interact",
                     "type": "Button",
                     "id": "84b6b372-47ac-4348-902c-8a1054a2cb9c",
                     "expectedControlType": "",
@@ -37,45 +37,23 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "36a6f4ea-7972-4742-a54f-e0bdb8144c13",
-                    "path": "<Gamepad>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Buttons",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "eb4a9d6f-077e-4d41-b8c8-ed99b417a41e",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Buttons",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8e3499c0-db2c-4d29-990f-00709a6e3a11",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard",
-                    "action": "Buttons",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "be2032e9-1a3d-4782-a8fe-8a5a91c2587f",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
-                    "action": "Buttons",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6ba9213b-b11e-43f2-bef7-4976e76e54db",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
