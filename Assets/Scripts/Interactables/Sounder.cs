@@ -27,7 +27,7 @@ namespace Interactables
             }
             else
             {
-                _audioFolder = Application.dataPath + "Audio/Sounders/";
+                _audioFolder = "Audio/Sounders/";
             }
         }
 
